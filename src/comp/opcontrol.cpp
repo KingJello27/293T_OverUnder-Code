@@ -8,6 +8,12 @@ void opcontrol() {
 
   while (true) {
 
+    chassis.tank(); // Tank control
+    // chassis.arcade_standard(ez::SPLIT); // Standard split arcade
+    // chassis.arcade_standard(ez::SINGLE); // Standard single arcade
+    // chassis.arcade_flipped(ez::SPLIT); // Flipped split arcade
+    // chassis.arcade_flipped(ez::SINGLE); // Flipped single arcade
+
     //shlurp Control
     if (master.get_digital(E_CONTROLLER_DIGITAL_R2)) {
       shlurp.move_velocity(100);
@@ -16,11 +22,15 @@ void opcontrol() {
       shlurp.move_velocity(0);
     }
 
-    chassis.tank(); // Tank control
-    // chassis.arcade_standard(ez::SPLIT); // Standard split arcade
-    // chassis.arcade_standard(ez::SINGLE); // Standard single arcade
-    // chassis.arcade_flipped(ez::SPLIT); // Flipped split arcade
-    // chassis.arcade_flipped(ez::SINGLE); // Flipped single arcade
+    //lift control
+    if (master.get_digital(E_CONTROLLER_DIGITAL_L2)){
+      lift.move_velocity(100);
+    }else if (master.get_digital(E_CONTROLLER_DIGITAL_L1)){
+      lift.move_velocity(-100);
+    }else{
+      lift.move_velocity(0);
+    }
+    
 
     // . . .
     // Put more user control code here!
