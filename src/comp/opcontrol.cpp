@@ -6,6 +6,8 @@ void opcontrol() {
   // This is preference to what you like to drive on.
   chassis.set_drive_brake(MOTOR_BRAKE_COAST);
 
+  bool clampState = true;
+
   while (true) {
 
     chassis.tank(); // Tank control
@@ -23,15 +25,24 @@ void opcontrol() {
     }
 
     //lift control
-    if (master.get_digital(E_CONTROLLER_DIGITAL_L2)){
+    if (master.get_digital(DIGITAL_L2)){
       lift.move_velocity(100);
-    }else if (master.get_digital(E_CONTROLLER_DIGITAL_L1)){
+    }else if (master.get_digital(DIGITAL_L1)){
       lift.move_velocity(-100);
     }else{
       lift.move_velocity(0);
     }
-    
 
+    //clamp control
+    // if (master.get_digital_new_press(DIGITAL_R1)){
+    //   leftWing.set_value(true);
+    //   rightWing.set_value(true);
+    // }
+
+    if (master.get_digital_new_press(DIGITAL_R1)){
+      clampState = !clampState;
+      clamp.set_value(clampState);
+    }
     // . . .
     // Put more user control code here!
     // . . .
