@@ -7,7 +7,7 @@
 extern Controller master;
 
 //Motors
-extern pros::Motor puncher, lift;
+extern pros::Motor shlurp, lift;
 extern pros::Motor motors[8];
 
 //Pneumatics

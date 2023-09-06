@@ -10,10 +10,10 @@ void opcontrol() {
 
     //shlurp Control
     if (master.get_digital(E_CONTROLLER_DIGITAL_R2)) {
-      puncher.move_velocity(100);
+      shlurp.move_velocity(100);
     }
     else {
-      puncher.move_velocity(0);
+      shlurp.move_velocity(0);
     }
 
     chassis.tank(); // Tank control
