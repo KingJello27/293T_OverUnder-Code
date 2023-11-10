@@ -7,7 +7,7 @@
 extern Controller controller;
 
 //Motors
-extern pros::Motor shlurp, lift;
+extern pros::Motor cata, lift;
 extern pros::Motor motors[8];
 
 //Pneumatics

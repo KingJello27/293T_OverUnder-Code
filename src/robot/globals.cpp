@@ -11,10 +11,10 @@ Motor rightFront(3, E_MOTOR_GEARSET_06, false, E_MOTOR_ENCODER_DEGREES);
 Motor rightMiddle(4, E_MOTOR_GEARSET_06, true, E_MOTOR_ENCODER_DEGREES); 
 Motor rightBack(6, E_MOTOR_GEARSET_06, false, E_MOTOR_ENCODER_DEGREES); 
 
-Motor shlurp(5, E_MOTOR_GEARSET_06, true, E_MOTOR_ENCODER_DEGREES); 
+Motor cata(5, E_MOTOR_GEARSET_06, true, E_MOTOR_ENCODER_DEGREES); 
 Motor lift(2, E_MOTOR_GEARSET_36, true, E_MOTOR_ENCODER_DEGREES); 
 
-Motor motors[8] = {leftFront, leftMiddle, leftBack, rightFront, rightMiddle, rightBack, shlurp, lift};
+Motor motors[8] = {leftFront, leftMiddle, leftBack, rightFront, rightMiddle, rightBack, cata, lift};
 
 //Pneumatics
 pros::ADIDigitalOut wings('A');
