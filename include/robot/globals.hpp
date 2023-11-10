@@ -4,14 +4,15 @@
 #include "pros/distance.hpp"
 
 //Controller
-extern Controller master;
+extern Controller controller;
 
 //Motors
 extern pros::Motor shlurp, lift;
 extern pros::Motor motors[8];
 
 //Pneumatics
-extern pros::ADIDigitalOut leftWing, rightWing, clamp;
+extern pros::ADIDigitalOut wings;
+extern pros::ADIDigitalIn bumper;
 
 //Chassis
 extern Drive chassis;

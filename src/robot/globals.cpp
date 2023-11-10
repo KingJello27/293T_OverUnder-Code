@@ -1,7 +1,7 @@
 #include "main.h"
 
 //Controller
-Controller master(E_CONTROLLER_MASTER);
+Controller controller(E_CONTROLLER_MASTER);
 
 //Motors
 Motor leftFront(7, E_MOTOR_GEARSET_06, true, E_MOTOR_ENCODER_DEGREES); 
@@ -17,9 +17,8 @@ Motor lift(2, E_MOTOR_GEARSET_36, true, E_MOTOR_ENCODER_DEGREES);
 Motor motors[8] = {leftFront, leftMiddle, leftBack, rightFront, rightMiddle, rightBack, shlurp, lift};
 
 //Pneumatics
-pros::ADIDigitalOut leftWing('A');
-pros::ADIDigitalOut rightWing('B');
-pros::ADIDigitalOut clamp('C');
+pros::ADIDigitalOut wings('A');
+pros::ADIDigitalIn bumper('B');
 
 // Chassis constructor
 Drive chassis (
@@ -64,3 +63,13 @@ Drive chassis (
   // 3 Wire Port Expander Smart Port
   // ,1
 );
+
+// void default_constants() {
+//   chassis.set_slew_min_power(80, 80);
+//   chassis.set_slew_distance(7, 7);
+//   chassis.set_pid_constants(&chassis.headingPID, 11, 0, 20, 0);
+//   chassis.set_pid_constants(&chassis.forward_drivePID, 0.45, 0, 5, 0);
+//   chassis.set_pid_constants(&chassis.backward_drivePID, 0.45, 0, 5, 0);
+//   chassis.set_pid_constants(&chassis.turnPID, 5, 0.003, 35, 15);
+//   chassis.set_pid_constants(&chassis.swingPID, 7, 0, 45, 0);
+// }
